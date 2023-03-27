@@ -6,7 +6,11 @@ body {
   margin: 0;
   overflow: hidden;
   position: absolute;
-  font-family: "Ubuntu", "Source Sans Pro", sans-serif;
+}
+
+h1,
+p {
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 h1 {
@@ -14,8 +18,9 @@ h1 {
 }
 
 p {
-  margin: 7px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
   font-size: large;
+  color: #444444;
 }
 
 .main-div {
