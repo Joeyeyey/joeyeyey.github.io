@@ -1,19 +1,19 @@
 .console-title-bar {
-  border-radius: 6px 6px 0px 0px; /* TL, TR, BR, BL*/
-  padding-left: 8px;
+  border-radius: 8px 8px 0px 0px; /* TL, TR, BR, BL*/
+  padding-left: 12px;
   background: lightgray;
-  height: 22px;
+  height: 28px;
   display: flex; /* flexbox! */
   flex-direction: row;
   align-items: center; /* vertical alignment */
-  gap: 5px; /* space between flex items */
+  gap: 8px; /* space between flex items */
 }
 
 .title-close,
 .title-minimize,
 .title-expand {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 100%;
 }
 
@@ -30,8 +30,17 @@
 }
 
 .console-main {
-  padding: 30px;
+  padding: 40px;
+  margin: 0px;
   background: white;
   text-align: center;
-  border-radius: 0px 0px 6px 6px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.main-text {
+  margin: 0;
+}
+
+.sub-text {
+    color: #444444;
 }
