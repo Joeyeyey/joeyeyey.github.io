@@ -1,0 +1,36 @@
+.console-title-bar {
+  border-radius: 7px 7px 0px 0px;
+  background: lightgray;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title-close,
+.title-minimize,
+.title-expand {
+  margin-left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+}
+
+.title-close {
+  background: #ff3b30;
+}
+
+.title-minimize {
+  background: #ff9500;
+}
+
+.title-expand {
+  background: #28cd41;
+}
+
+.console-main {
+  padding: 30px;
+  background: white;
+  text-align: center;
+  border-radius: 0px 0px 7px 7px;
+}

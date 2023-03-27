@@ -5,9 +5,42 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  position: absolute;
+  font-family: "Ubuntu", "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 7px 0px 0px 0px;
+  font-size: large;
+}
+
+.main-div {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-div {
+  margin: 0;
+  width: fit-content;
 }
 
 .background-canvas {
+  z-index: 0;
+  top: 0;
+  position: absolute;
   width: 100%;
   height: 100%;
+  background: #222222;
 }

@@ -1,45 +1,107 @@
-function init() {
-  window.requestAnimationFrame(draw);
+var starWindowRatio = 0.07;
+
+var canvas = document.getElementById("background-canvas"),
+  ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var stars = [], // Array that contains the stars
+  FPS = 60, // Frames per second
+  x = (canvas.width * canvas.height * starWindowRatio) / 1000, // Number of stars
+  mouse = {
+    x: 0,
+    y: 0,
+  }; // mouse location
+
+// Push stars to array
+
+for (var i = 0; i < x; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1 + 1,
+    vx: Math.floor(Math.random() * 30) - 15,
+    vy: Math.floor(Math.random() * 30) - 15,
+  });
 }
+
+// Draw the scene
 
 function draw() {
-  const ctx = document.getElementById("background-canvas").getContext("2d");
-  ctx.globalCompositeOperation = "destination-over";
-  const time = new Date();
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  var windowWidth = (ctx.canvas.width = window.innerWidth);
-  var windowHeight = (ctx.canvas.height = window.innerHeight);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  var rectWidth = 200;
-  var rectHeight = 200;
+  ctx.globalCompositeOperation = "lighter";
 
-  var rectHoriCenter = windowWidth / 2 - rectWidth / 2;
-  var rectVertCenter =  windowHeight / 2 - rectHeight / 2;
+  for (var i = 0, x = stars.length; i < x; i++) {
+    var s = stars[i];
 
-  
-
-  ctx.save();
-  ctx.translate(windowWidth / 2, windowHeight / 2);
-  
-  ctx.rotate(
-    ((2 * Math.PI) / 6) * time.getSeconds() +
-      ((2 * Math.PI) / 6000) * time.getMilliseconds()
-  );
-  
-  ctx.translate(-windowWidth / 2, -windowHeight / 2);
-
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.fillStyle = "black";
+    ctx.stroke();
+  }
 
   ctx.beginPath();
-  ctx.fillRect(
-    rectHoriCenter,
-    rectVertCenter,
-    rectWidth,
-    rectHeight
-  );
+  for (var i = 0, x = stars.length; i < x; i++) {
+    var starI = stars[i];
+    ctx.moveTo(starI.x, starI.y);
+    if (distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y);
+    for (var j = 0, x = stars.length; j < x; j++) {
+      var starII = stars[j];
+      if (distance(starI, starII) < 150) {
+        ctx.lineTo(starII.x, starII.y);
+      }
+    }
+  }
+  ctx.lineWidth = 0.05;
+  ctx.strokeStyle = "white";
   ctx.stroke();
-  ctx.restore();
-
-  window.requestAnimationFrame(draw);
 }
 
-init();
+function distance(point1, point2) {
+  var xs = 0;
+  var ys = 0;
+
+  xs = point2.x - point1.x;
+  xs = xs * xs;
+
+  ys = point2.y - point1.y;
+  ys = ys * ys;
+
+  return Math.sqrt(xs + ys);
+}
+
+// Update star locations
+
+function update() {
+  for (var i = 0, x = stars.length; i < x; i++) {
+    var s = stars[i];
+
+    s.x += s.vx / FPS;
+    s.y += s.vy / FPS;
+
+    if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
+    if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
+  }
+}
+
+canvas.addEventListener("mousemove", function (e) {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+// Update and draw
+
+function tick() {
+  draw();
+  update();
+  requestAnimationFrame(tick);
+}
+
+tick();
