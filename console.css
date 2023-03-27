@@ -1,18 +1,17 @@
 .console-title-bar {
-  border-radius: 6px 6px 0px 0px;
-  padding-left: 3px;
+  border-radius: 6px 6px 0px 0px; /* TL, TR, BR, BL*/
+  padding-left: 8px;
   background: lightgray;
   height: 22px;
-  display: flex;
+  display: flex; /* flexbox! */
   flex-direction: row;
-  align-items: center;
-
+  align-items: center; /* vertical alignment */
+  gap: 5px; /* space between flex items */
 }
 
 .title-close,
 .title-minimize,
 .title-expand {
-  margin-left: 5px;
   width: 8px;
   height: 8px;
   border-radius: 100%;
