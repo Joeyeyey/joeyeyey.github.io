@@ -42,3 +42,21 @@ body {
   height: 100%;
   background: #222222;
 }
+
+.sub-text::after {
+  position: relative;
+  content: "";
+  width: 1px;
+  height: 28px;
+  background: black;
+  display: inline-block;
+  left: 3px;
+  top: 4px;
+  animation: cursor-blink 1s steps(2) infinite;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
