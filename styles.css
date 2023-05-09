@@ -699,18 +699,6 @@ video {
   font-weight: 700;
 }
 
-.delay-100 {
-  transition-delay: 100ms;
-}
-
-.delay-500 {
-  transition-delay: 500ms;
-}
-
-.delay-1000 {
-  transition-delay: 1000ms;
-}
-
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
