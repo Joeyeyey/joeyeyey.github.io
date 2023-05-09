@@ -534,6 +534,10 @@ video {
   z-index: 10;
 }
 
+.z-20 {
+  z-index: 20;
+}
+
 .m-5 {
   margin: 1.25rem;
 }
@@ -574,6 +578,20 @@ video {
 @keyframes fadein {
   0% {
     opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadein 0.7s ease-out forwards;
+}
+
+@keyframes fadeinup {
+  0% {
+    opacity: 0;
     transform: translateY(25%);
   }
 
@@ -583,8 +601,8 @@ video {
   }
 }
 
-.animate-fade-in {
-  animation: fadein 0.5s ease-out;
+.animate-fade-in-and-up {
+  animation: fadeinup 0.5s ease-out 0.5s forwards;
 }
 
 .flex-row {
@@ -664,9 +682,9 @@ video {
   padding-right: 2.5rem;
 }
 
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 }
 
 .pl-3 {
@@ -697,6 +715,10 @@ video {
 
 .font-bold {
   font-weight: 700;
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .ease-out {
