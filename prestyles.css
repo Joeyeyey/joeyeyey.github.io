@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .navbutton {
+        @apply border-b-2 border-slate-400
+        text-xl whitespace-nowrap
+        hover:border-slate-200;
+    }
+}
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+    body {
+        @apply font-ssp;
+    }
+    section {
+        @apply block px-56 py-16
+        scroll-m-16
+    }
+    h1 {
+        @apply font-bold text-4xl my-5;
+    }
+    h2 {
+        @apply font-bold text-3xl my-4;
+    }
+    h3 {
+        @apply text-2xl my-3;
+    }
+    h4 {
+        @apply text-xl my-2;
+    }
+    h5 {
+        @apply text-lg my-1;
+    }
+    p {
+        @apply text-base;
+    }
+}
