@@ -1,5 +1,11 @@
 {
-  "devDependencies": {
-    "tailwindcss": "^3.3.2"
-  }
+    "scripts": {
+        "dev": "http-server -a localhost"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.3.2"
+    },
+    "dependencies": {
+        "http-server": "^14.1.1"
+    }
 }
